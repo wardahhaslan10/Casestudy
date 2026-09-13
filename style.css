@@ -1,0 +1,52 @@
+/*
+Course Code & Name : DFP50193 - Web Programming
+Full Name          : ______________________________
+Registration Number: ______________________________
+Class              : ______________________________
+*/
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 15px;
+}
+
+.dashboard-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.number {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.info-box {
+    background: white;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.info-box h3 {
+    margin-bottom: 15px;
+}
+
+.info-box li {
+    margin-bottom: 10px;
+}
