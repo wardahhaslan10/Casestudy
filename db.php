@@ -1,21 +1,19 @@
 <?php
 /*
 Course Code & Name : DFP50193 - Web Programming
-Full Name          : __WARDAH BINTI HASLAN____________________________
-Registration Number: ______18DDT23F1099________________________
-Class              : _______DDT7B_______________________
+Full Name          : Wardah Haslan
+Registration Number: [Your Registration Number]
+Class              : DDT7B
 */
 
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "e_document_db";
+$username = "root";
+$password = "";
+$database = "e_document_db";
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = mysqli_connect($host, $username, $password, $database);
 
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
 }
-
-$conn->set_charset("utf8mb4");
 ?>

@@ -1,71 +1,133 @@
 <?php
 /*
 Course Code & Name : DFP50193 - Web Programming
-Full Name          : ______________________________
-Registration Number: ______________________________
-Class              : ______________________________
+Full Name          : Wardah Haslan
+Registration Number: [Your Registration Number]
+Class              : DDT7B
 */
 
 session_start();
 
-require_once "db.php";
+include 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: index.php");
-    exit;
-}
+$error = "";
 
-$username = trim($_POST["username"] ?? "");
-$password = $_POST["password"] ?? "";
+if (isset($_POST['login'])) {
 
-if ($username === "" || $password === "") {
+    $username = trim($_POST['username']);
+    $password = $_POST['password'];
 
-    $_SESSION["login_error"] =
-        "Please enter username and password.";
+    $username = mysqli_real_escape_string($conn, $username);
 
-    header("Location: index.php");
-    exit;
-}
+    $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
 
-$stmt = $conn->prepare(
-    "SELECT id, username, password
-     FROM admin
-     WHERE username = ?"
-);
+    $result = mysqli_query($conn, $sql);
 
-$stmt->bind_param("s", $username);
+    if (mysqli_num_rows($result) == 1) {
 
-$stmt->execute();
+        $user = mysqli_fetch_assoc($result);
 
-$result = $stmt->get_result();
+        if (password_verify($password, $user['password'])) {
 
-if ($result->num_rows === 1) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['full_name'] = $user['full_name'];
 
-    $admin = $result->fetch_assoc();
+            header("Location: index.php");
+            exit();
 
-    if (
-        password_verify(
-            $password,
-            $admin["password"]
-        )
-    ) {
+        } else {
 
-        session_regenerate_id(true);
+            $error = "Invalid username or password.";
 
-        $_SESSION["admin_id"] =
-            $admin["id"];
+        }
 
-        $_SESSION["admin_username"] =
-            $admin["username"];
+    } else {
 
-        header("Location: dashboard.php");
-        exit;
+        $error = "Invalid username or password.";
+
     }
 }
-
-$_SESSION["login_error"] =
-    "Invalid username or password.";
-
-header("Location: index.php");
-exit;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - E-Document Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>E-Document Management System</h1>
+
+    <p>Login</p>
+
+</header>
+
+<main>
+
+    <div class="login-container">
+
+        <h2>Login</h2>
+
+        <?php if ($error != "") { ?>
+
+            <div class="error">
+                <?php echo $error; ?>
+            </div>
+
+        <?php } ?>
+
+        <form method="POST">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button
+                type="submit"
+                name="login"
+            >
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>&copy; 2026 E-Document Management System</p>
+
+</footer>
+
+</body>
+
+</html>

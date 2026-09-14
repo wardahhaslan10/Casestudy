@@ -1,52 +1,242 @@
 /*
 Course Code & Name : DFP50193 - Web Programming
-Full Name          : __WARDAH BINTI HASLAN ____________________________
-Registration Number: ______________________18DDT23F1099________
-Class              : ______________________DDT7B_____________
+Full Name          : Wardah Haslan
+Registration Number: 18ddt23f1099
+Class              : DDT7B
 */
 
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 25px;
+* {
+    box-sizing: border-box;
 }
 
-.dashboard-card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+header {
+    background-color: #24527a;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+nav {
+    background-color: #183b56;
+    padding: 15px;
     text-align: center;
 }
 
-.dashboard-card h3 {
-    margin-bottom: 15px;
-}
-
-.dashboard-card p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.number {
-    font-size: 42px;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
     font-weight: bold;
-    margin: 15px 0;
 }
 
-.info-box {
-    background: white;
-    margin-top: 25px;
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.welcome {
+    background-color: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
-.info-box h3 {
-    margin-bottom: 15px;
+.search-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
-.info-box li {
-    margin-bottom: 10px;
+.search-box form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #24527a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #183b56;
+}
+
+.reset-btn,
+.cancel-btn,
+.back-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #777;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.document-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #24527a;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.view-btn,
+.edit-btn,
+.delete-btn,
+.file-btn {
+    display: inline-block;
+    padding: 7px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.view-btn {
+    background-color: #337ab7;
+}
+
+.edit-btn {
+    background-color: #e0a800;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.file-btn {
+    background-color: #28a745;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+}
+
+.no-data a {
+    display: inline-block;
+    background-color: #24527a;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.form-container,
+.details {
+    background-color: white;
+    padding: 30px;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.form-container h2,
+.details h2 {
+    margin-top: 0;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    margin-top: 20px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.details p {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    text-align: center;
+    background-color: #183b56;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+
+    .search-box form {
+        flex-direction: column;
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
 }
