@@ -1,9 +1,9 @@
 <?php
 /*
 Course Code & Name : DFP50193 - Web Programming
-Full Name          : ______________________________
-Registration Number: ______________________________
-Class              : ______________________________
+Full Name          : __WARDAH BINTI HASLAN____________________________
+Registration Number: ______18DDT23F1099________________________
+Class              : _______DDT7B_______________________
 */
 
 $host = "localhost";

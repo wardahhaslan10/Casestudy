@@ -1,7 +1,7 @@
 <?php
 /*
 Course Code & Name : DFP50193 - Web Programming
-Full Name          : __wardha binti haslan____________________________
+Full Name          : __wardah binti haslan____________________________
 Registration Number: _18ddt23f1099_____________________________
 Class              : _______ddt7b_______________________
 */
